@@ -6,11 +6,22 @@
 # Далее следует N строк.
 
 
-print("Введите набор чисел через пробел:")
-numbers = [int(i) for i in input().split()]
-print("Какой отрезок нужно возвести в квадрат и просуммировать?")
-range = [int(i) for i in input().split()]
-print("Сумма квадратов чисел из указанного набора:")
-print(sum((i)**2 for i in numbers[range[0]-1:range[1]]))
+print("Введите количество строк в формате '#N', где N - количество строк")
+n = int([i for i in input().split('#')].pop())
+
+out = []
+print("Введите текст программы:")
+for i in range(n):
+    line = input().rstrip()
+    if '#' in line:
+        if (line.find('#') == 0):
+            continue
+        line = line[:line.find('#')]
+    out += [line]
+
+print("\nТекст программы без комментариев:")
+for i in out:
+    print(i)
+
 
 
